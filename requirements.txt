@@ -1,0 +1,28 @@
+# Core dependencies
+numpy
+pandas
+pyarrow  # For parquet export
+requests
+tiktoken
+python-dotenv
+
+# ML and NLP
+faiss-cpu==1.8.0
+langchain-text-splitters
+nltk
+rank-bm25
+
+# API clients
+mistralai
+cohere
+
+# Optional tokenizer support
+mistral-common
+
+# Data validation
+pydantic
+
+# Development and demo
+gradio
+jupyter
+

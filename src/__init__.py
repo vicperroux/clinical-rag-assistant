@@ -1,0 +1,1 @@
+"""Clinical RAG Assistant package."""
