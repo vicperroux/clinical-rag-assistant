@@ -2,14 +2,13 @@
 
 A Retrieval-Augmented Generation (RAG) system for clinical drug information using DailyMed data.
 
-## The Business Challenge
+## The Challenge
 
-**The Problem:**
 - Clinicians and pharmacists handle **20-50 drug label questions each day**
 - FDA labels are **voluminous (150k+ SPL documents)**, messy, and frequently revised, making it difficult to research dosage, contraindications, or interactions within a **<5-minute clinical window**
 - In practice, providers either **skip the lookup** (risking errors) or **lose valuable time** searching through dense documentation
 
-**The Goal:**
+## The Goal
 Provide a **fast, reliable, and traceable** answer to any drug-related query, grounded in official FDA drug labels. This system enables clinicians to get accurate information in seconds instead of minutes, improving both patient safety and workflow efficiency.
 
 ## Project Ambition
@@ -53,17 +52,24 @@ git clone <repository-url>
 cd clinical-rag-assistant
 ```
 
-2. Install dependencies:
+2. Create and activate a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Set up API keys:
+4. Set up API keys:
 ```bash
 cp .env.example .env
 # Edit .env and add your Mistral API key
 ```
-- Mistral API key for embeddings (required)
+- Mistral API key for embeddings and LLM generation (required)
+- Cohere API key for reranking (optional)
 
 ## Quick Start
 
@@ -71,12 +77,12 @@ cp .env.example .env
 
 Run the complete pipeline:
 ```bash
-python main.py full-pipeline --drugs "aspirin,ibuprofen"
+python main.py full-pipeline --drugs "aspirin"
 ```
 
 Or run individual steps:
 ```bash
-python main.py collect --drugs "aspirin,ibuprofen"
+python main.py collect --drugs "aspirin" # Can be replaced with a bulk download of drugs from DailyMed
 python main.py process
 python main.py index
 python main.py search --query "What are the side effects of aspirin?"

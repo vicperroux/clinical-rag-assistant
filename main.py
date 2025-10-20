@@ -66,7 +66,7 @@ class ClinicalRAGSystem:
         # Data storage paths
         self.xml_dir = self.data_dir / "xml_files"
         self.json_dir = self.data_dir / "json_files"
-        self.index_dir = self.data_dir / "faiss_index"
+        self.index_dir = self.data_dir / "index"
 
         # Ensure directories exist
         self.xml_dir.mkdir(exist_ok=True)
